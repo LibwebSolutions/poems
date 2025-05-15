@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Phoenicia's Home - Poem Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+<style>
+  /* Base styles */
+  body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Dancing Script', cursive;
+    background-color: #ffe4e1;
+    color: #c2185b;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
+  #intro {
+    position: absolute;
+    inset: 0;
+    background-color: #ffe4e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .intro-text {
+    font-size: 2.5rem;
+    opacity: 0;
+    color: #e91e63;
+    background: rgba(255 255 255 / 0.6);
+    padding: 10px 20px;
+    border-radius: 12px;
+    max-width: 90vw;
+    user-select: none;
+    position: relative;
+    will-change: transform, opacity;
+    word-wrap: break-word;
+    line-height: 1.3;
+  }
+
+  #library {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    max-width: 95vw;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #e91e63;
+    background: rgba(255 255 255 / 0.6);
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    max-width: 90vw;
+    word-wrap: break-word;
+  }
+
+  .library {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .poem {
+    background-color: #ffc1e3;
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0 0 0 / 0.1);
+    transition: transform 0.3s;
+    flex: 1 1 140px;
+    max-width: 220px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .poem:hover {
+    transform: scale(1.05);
+  }
+
+  a {
+    text-decoration: none;
+    color: #c2185b;
+    font-size: 1.3rem;
+    word-break: break-word;
+    display: block;
+  }
+
+  a:hover {
+    color: #ff4081;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    .intro-text {
+      font-size: 2rem;
+      padding: 8px 15px;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .poem {
+      flex: 1 1 120px;
+      max-width: 180px;
+      padding: 10px 12px;
+    }
+    a {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    body, #intro {
+      padding: 10px;
+    }
+    .intro-text {
+      font-size: 1.5rem;
+      padding: 8px 12px;
+    }
+    h1 {
+      font-size: 1.7rem;
+    }
+    .library {
+      gap: 8px;
+    }
+    .poem {
+      flex: 1 1 100%;
+      max-width: 100%;
+      padding: 12px;
+    }
+    a {
+      font-size: 1.1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div id="intro">
+  <div id="introText1" class="intro-text">Welcome to your home of love</div>
+  <div id="introText2" class="intro-text">Here is a place created just for you by the love of your life</div>
+</div>
+
+<div id="library" style="display:none;">
+  <h1>Phoenicia's Home</h1>
+  <div class="library">
+    <div class="poem"><a href="Worry_Not_My_Love.pdf" target="_blank" rel="noopener">Poem 1</a></div>
+    <div class="poem"><a href="A_Love_Unplanned.pdf" target="_blank" rel="noopener">Poem 2</a></div>
+    <div class="poem"><a href="My_Greatest_Gift.pdf" target="_blank" rel="noopener">Poem 3</a></div>
+    <div class="poem"><a href="The_Way_You_See_Me.pdf" target="_blank" rel="noopener">Poem 4</a></div>
+    <div class="poem"><a href="Through_It_All.pdf" target="_blank" rel="noopener">Poem 5</a></div>
+    <div class="poem"><a href="unexpected_love_libassi_fixed.pdf" target="_blank" rel="noopener">Poem 6</a></div>
+    <div class="poem"><a href="poem7.pdf" target="_blank" rel="noopener">Poem 7</a></div>
+    <div class="poem"><a href="poem8.pdf" target="_blank" rel="noopener">Poem 8</a></div>
+    <div class="poem"><a href="poem9.pdf" target="_blank" rel="noopener">Poem 9</a></div>
+    <div class="poem"><a href="poem10.pdf" target="_blank" rel="noopener">Poem 10</a></div>
+  </div>
+</div>
+
+<script>
+  const introText1 = document.getElementById('introText1');
+  const introText2 = document.getElementById('introText2');
+  const intro = document.getElementById('intro');
+  const library = document.getElementById('library');
+
+  function animateIntroText(element, callback) {
+    element.style.opacity = 1;
+    element.style.transform = 'translateX(0) translateY(0)';
+
+    // Fly in from left and float a bit up then fade out
+    element.animate([
+      { transform: 'translateX(-150vw) translateY(0)', opacity: 0 },
+      { transform: 'translateX(0) translateY(-20px)', opacity: 1 },
+      { transform: 'translateX(0) translateY(-20px)', opacity: 1 },
+      { transform: 'translateX(0) translateY(-20px)', opacity: 0 }
+    ], {
+      duration: 4500,
+      easing: 'ease-in-out',
+      fill: 'forwards'
+    }).onfinish = callback;
+  }
+
+  // Initialize positions off screen
+  introText1.style.transform = 'translateX(-150vw)';
+  introText2.style.transform = 'translateX(-150vw)';
+
+  // Chain animations
+  animateIntroText(introText1, () => {
+    introText1.style.opacity = 0;
+    animateIntroText(introText2, () => {
+      intro.style.opacity = 0;
+      setTimeout(() => {
+        intro.style.display = 'none';
+        library.style.display = 'block';
+        setTimeout(() => {
+          library.style.opacity = 1;
+        }, 50);
+      }, 1000);
+    });
+  });
+</script>
+
+</body>
+</html>
